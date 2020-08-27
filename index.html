@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <style>
+        .box {
+            position: relative;
+            width: 640px;
+            height: 360px;
+            border: thin solid #ccc;
+        }
+
+        .box div {
+            position: absolute;
+        }
+        .box div:nth-child(2) {
+             z-index: 2;
+         }
+
+        .box img {
+            width: 640px;
+            height: 360px;
+            object-fit: cover;
+        }
+
+        .c0 {
+            animation: play0 3s linear;
+        }
+
+        .c1 {
+            animation: play4 3s linear;
+        }
+
+        .c2 {
+            animation: play2 3s linear;
+        }
+        .c3 {
+            animation: play3 3s linear;
+        }
+
+        .c4 {
+            animation: play1 3s linear;
+        }
+
+        .c5 {
+            animation: play2 3s linear;
+        }
+
+        @keyframes play0 {
+            0% {
+                clip-path: inset(50% 50% 50% 50% round 20px);
+            }
+            100% {
+                clip-path: inset(0 0 0 0 round 0px);
+            }
+        }
+
+        @keyframes play1 {
+            0% {
+                clip-path: circle(0);
+            }
+            100% {
+                clip-path: circle(100%);
+            }
+
+        }
+
+        @keyframes play2 {
+            0% {
+                clip-path: polygon(50% 50%, 50% 50%, 50% 50%)
+            }
+            100% {
+                clip-path: polygon(50% -100%, -100% 200%, 200% 200%);
+            }
+        }
+        @keyframes play3 {
+            0% {
+                clip-path: inset(0 50% 0 50%);
+            }
+            100% {
+                clip-path: inset(0 0 0 0);
+            }
+        }
+        @keyframes play4 {
+            0% {
+                clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%);
+            }
+            50% {
+                clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            }
+            100% {
+                clip-path: polygon(50% -100%, 83% -35%, 172% -35%, 112% 57%, 120% 191%, 50% 170%, -21% 91%, -32% 57%, -60% -35%, -39% -35%);
+            }
+        }
+
+        .r0 {
+            animation: playr1 3s linear ;
+        }
+        .r1 {
+            animation: playr2 3s linear;
+        }
+        .r2 {
+            animation: playr1 3s linear ;
+        }
+        .r3 {
+            animation: playr2 3s linear ;
+        }
+        .r4 {
+            animation: playr1 3s linear ;
+        }
+        .r5 {
+            animation: playr2 3s linear ;
+        }
+        @keyframes playr1 {
+            0% {
+                clip-path: circle(0px at 100% 50%);
+            }
+            100% {
+                clip-path: circle(130% at 100% 50%);
+            }
+        }
+        @keyframes playr2 {
+            0% {
+                clip-path: polygon(130% 0,100% 50%, 130% 100%, 230% 100%, 230% 0)
+            }
+            100% {
+                clip-path: polygon(0 0,-30% 50%, 0 100%, 100% 100% ,100% 0);
+            }
+        }
+
+        .l0 {
+            animation: playl2 3s linear;
+        }
+        .l1 {
+            animation: playl1 3s linear;
+        }
+        .l2 {
+            animation: playl2 3s linear;
+        }
+        .l3 {
+            animation: playl1 3s linear;
+        }
+        .l4 {
+            animation: playl2 3s linear;
+        }
+        .l5 {
+            animation: playl1 3s linear;
+        }
+        @keyframes playl1 {
+            0% {
+                clip-path: polygon(-30% 0, 0 50%,-30% 100%, -130% 100%, -130% 0)
+            }
+            100% {
+                clip-path: polygon(100% 0,130% 50%,100% 100%, 0 100%, 0 0);
+            }
+        }
+        @keyframes playl2 {
+            0% {
+                clip-path: circle(0px at 0 50%);
+            }
+            100% {
+                clip-path: circle(130% at 0 50%);
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <div><img src="0.jpg" alt=""></div>
+    <div><img src="0.jpg" alt=""></div>
+</div>
+
+<script>
+    const box = document.querySelector('.box')
+    const tran = box.children;
+    let arr = ['0.jpg', '1.jpg', '2.jpg', '3.jpg', '4.jpg','5.jpg'];
+    let num = 1;
+    (function (){
+        let img = []
+        for (let i=0;i < arr.length;i++){
+            img[i] = new Image();
+            img[i].src = arr[i];
+        }
+    })()
+    box.addEventListener('click', boxclick);
+    let timer = setTimeout(cent,5000);
+    box.addEventListener('mouseover',boxMouseover);
+    box.addEventListener('mouseout',boxMouseout);
+    function boxclick(e) {
+        if (e.pageX - this.offsetLeft > this.offsetWidth / 2){
+            next();
+        } else {
+            prev();
+        }
+    }
+    function next() {
+        tran[1].className = 'r' + num;
+        tran[0].children[0].src = tran[1].children[0].src;
+        tran[1].children[0].src = arr[num];
+        num++;
+        if (num === arr.length) {
+            num = 0;
+        }
+    }
+    function prev() {
+        tran[1].className = 'l' + num;
+        tran[0].children[0].src = tran[1].children[0].src;
+        tran[1].children[0].src = arr[num];
+        num--;
+        if (num === -1) {
+            num = arr.length - 1;
+        }
+    }
+
+
+    function cent() {
+        tran[1].className = 'c' + num;
+        tran[0].children[0].src = tran[1].children[0].src;
+        tran[1].children[0].src = arr[num];
+        num++;
+        if (num === arr.length) {
+            num = 0;
+        }
+        timer = clearTimeout(timer)
+        setTimeout(() => timer = setTimeout(cent,5000),3000)
+
+    }
+
+    function boxMouseover() {
+       timer = clearTimeout(timer)
+    }
+    function boxMouseout() {
+        timer = setTimeout(cent,5000)
+    }
+</script>
+</body>
+</html>
