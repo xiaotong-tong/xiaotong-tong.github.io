@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:master" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="6b1b9041-0e13-4ff8-909f-4ef0e0bbb11f" name="默认的" comment="">
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="SCSS File" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1hUS8UMyMMycdExNMHwuak3AR4h" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="新增" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../htmlstudy" />
+    <property name="list.type.of.created.stylesheet" value="SCSS" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="fileTemplates" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\tong\Desktop\xiaotong-tong.github.io" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6b1b9041-0e13-4ff8-909f-4ef0e0bbb11f" name="默认的" comment="" />
+      <created>1600064018057</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1600064018057</updated>
+      <workItem from="1600064020740" duration="9477000" />
+      <workItem from="1600167676659" duration="2710000" />
+      <workItem from="1600342508139" duration="1561000" />
+      <workItem from="1600503868800" duration="245000" />
+      <workItem from="1600504245754" duration="3228000" />
+      <workItem from="1600764831074" duration="847000" />
+      <workItem from="1605626029488" duration="3227000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="281" y="10" key="#Plugins" timestamp="1600504278514">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="281" y="10" key="#Plugins/0.0.1366.728@0.0.1366.728" timestamp="1600504278514" />
+    <state x="493" y="254" key="#SCSS_Lint" timestamp="1600064540316">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="493" y="254" key="#SCSS_Lint/0.0.1366.728@0.0.1366.728" timestamp="1600064540316" />
+    <state x="369" y="103" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1600504005287">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="369" y="103" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1366.728@0.0.1366.728" timestamp="1600504005287" />
+    <state x="518" y="196" key="EditFileWatcherDialog" timestamp="1600064498191">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="518" y="196" key="EditFileWatcherDialog/0.0.1366.728@0.0.1366.728" timestamp="1600064498191" />
+    <state x="540" y="144" key="FileChooserDialogImpl" timestamp="1600773288024">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="540" y="144" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1600773288023" />
+    <state x="495" y="67" key="RollbackChangesDialog" timestamp="1605629152319">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="495" y="67" key="RollbackChangesDialog/0.0.1366.728@0.0.1366.728" timestamp="1605629152319" />
+    <state x="190" y="13" key="SettingsEditor" timestamp="1600503994106">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="190" y="13" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1600503994106" />
+    <state x="214" y="135" width="1033" height="462" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1605629372990">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="214" y="135" width="1033" height="462" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1366.728@0.0.1366.728" timestamp="1605629372990" />
+  </component>
+</project>
