@@ -26,7 +26,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6b1b9041-0e13-4ff8-909f-4ef0e0bbb11f" name="默认的" comment="">
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/ingenious-outline-border.html" beforeDir="false" afterPath="$PROJECT_DIR$/css/ingenious-outline-border.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,6 +71,11 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\tong\Desktop\xiaotong-tong.github.io\css\graph" />
+      <recent name="C:\Users\tong\Desktop\xiaotong-tong.github.io\css\A" />
+      <recent name="C:\Users\tong\Desktop\xiaotong-tong.github.io\css\graph\A.html" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\tong\Desktop\xiaotong-tong.github.io" />
     </key>
@@ -88,7 +94,10 @@
       <workItem from="1600503868800" duration="245000" />
       <workItem from="1600504245754" duration="3228000" />
       <workItem from="1600764831074" duration="847000" />
-      <workItem from="1605626029488" duration="3227000" />
+      <workItem from="1605626029488" duration="3434000" />
+      <workItem from="1605659088025" duration="150000" />
+      <workItem from="1605664440610" duration="948000" />
+      <workItem from="1606111793169" duration="1821000" />
     </task>
     <servers />
   </component>
