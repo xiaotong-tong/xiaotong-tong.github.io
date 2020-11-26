@@ -27,7 +27,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6b1b9041-0e13-4ff8-909f-4ef0e0bbb11f" name="默认的" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/ingenious-outline-border.html" beforeDir="false" afterPath="$PROJECT_DIR$/css/ingenious-outline-border.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +96,8 @@
       <workItem from="1605626029488" duration="3434000" />
       <workItem from="1605659088025" duration="150000" />
       <workItem from="1605664440610" duration="948000" />
-      <workItem from="1606111793169" duration="1821000" />
+      <workItem from="1606111793169" duration="5574000" />
+      <workItem from="1606137625841" duration="2824000" />
     </task>
     <servers />
   </component>
@@ -129,6 +129,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="469" y="228" key="#Notifications" timestamp="1606137659594">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="469" y="228" key="#Notifications/0.0.1366.728@0.0.1366.728" timestamp="1606137659594" />
     <state x="281" y="10" key="#Plugins" timestamp="1600504278514">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
