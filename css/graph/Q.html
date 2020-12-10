@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>graph-q</title>
+    <style>
+        .graph-q {
+            width: 75px;
+            height: 100px;
+            border: 10px solid;
+            border-radius: 50%;
+        }
+        .graph-q::after {
+            content: '';
+            display: block;
+            width: 20px;
+            height: 10px;
+            background-color: currentColor;
+            transform: translate(50px, 105px) rotate(45deg) skewX(-45deg);
+        }
+    </style>
+</head>
+<body>
+<div class="graph-q"></div>
+</body>
+</html>

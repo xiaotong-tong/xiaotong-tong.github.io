@@ -57,7 +57,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dart.analysis.tool.window.visible" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../htmlstudy" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/css" />
     <property name="list.type.of.created.stylesheet" value="SCSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -70,13 +70,14 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\tong\Desktop\xiaotong-tong.github.io\css" />
+      <recent name="C:\Users\tong\Desktop\xiaotong-tong.github.io" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\tong\Desktop\xiaotong-tong.github.io\css\graph" />
       <recent name="C:\Users\tong\Desktop\xiaotong-tong.github.io\css\A" />
       <recent name="C:\Users\tong\Desktop\xiaotong-tong.github.io\css\graph\A.html" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\tong\Desktop\xiaotong-tong.github.io" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -98,6 +99,12 @@
       <workItem from="1605664440610" duration="948000" />
       <workItem from="1606111793169" duration="5574000" />
       <workItem from="1606137625841" duration="2824000" />
+      <workItem from="1606390048727" duration="1213000" />
+      <workItem from="1606473786671" duration="12650000" />
+      <workItem from="1606540058327" duration="1652000" />
+      <workItem from="1606627315475" duration="3912000" />
+      <workItem from="1606645621468" duration="1813000" />
+      <workItem from="1606731995752" duration="33000" />
     </task>
     <servers />
   </component>
@@ -165,5 +172,9 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="214" y="135" width="1033" height="462" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1366.728@0.0.1366.728" timestamp="1605629372990" />
+    <state x="321" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1606475065082">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="321" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1606475065082" />
   </component>
 </project>

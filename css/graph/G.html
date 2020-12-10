@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>graph-g</title>
+    <style>
+        .graph-g {
+            width: 100px;
+            height: 100px;
+            color: red;
+            border: 10px solid;
+            position: relative;
+            border-radius: 50%;
+        }
+        .graph-g::before {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 80px;
+            background: #fff;
+            right: -10px;
+            top: calc(50% - 40px);
+        }
+        .graph-g::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 30px;
+            border-top: 10px solid;
+            border-right: 16px solid;
+            right: 4px;
+            bottom: 9px;
+            border-radius: 0 0 3px/0 0 6px;
+        }
+    </style>
+</head>
+<body>
+<div class="graph-g"></div>
+</body>
+</html>

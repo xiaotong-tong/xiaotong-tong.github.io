@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>graph-k</title>
+    <style>
+        .graph-k {
+            width: 100px;
+            height: 100px;
+            border-left: 10px solid;
+        }
+        .graph-k::before {
+            content: '';
+            display: block;
+            width: 10px;
+            height: 50px;
+            background-color: #000;
+            transform-origin: left bottom;
+            transform: skewX(-45deg);
+        }
+        .graph-k::after {
+            content: '';
+            display: block;
+            width: 10px;
+            height: 50px;
+            background-color: #000;
+            transform-origin: left top;
+            transform: skewX(-135deg);
+        }
+    </style>
+</head>
+<body>
+<div class="graph-k"></div>
+</body>
+</html>

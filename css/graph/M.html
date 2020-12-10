@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>graph-m</title>
+    <style>
+        .graph-m {
+            width: 100px;
+            height: 100px;
+            box-sizing: border-box;
+            border-left: 10px solid;
+            border-right: 10px solid;
+        }
+        .graph-m::before {
+            content: '';
+            display: block;
+            width: 10px;
+            height: 100px;
+            background-color: currentColor;
+            transform-origin: left top;
+            transform: skewX(24deg) translateX(-10px);
+        }
+        .graph-m::after {
+            content: '';
+            display: block;
+            width: 10px;
+            height: 100px;
+            background-color: currentColor;
+            transform-origin: left bottom;
+            transform: translate(35px, -100px) skewX(-24deg) ;
+        }
+    </style>
+</head>
+<body>
+<div class="graph-m"></div>
+</body>
+</html>
