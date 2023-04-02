@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>xtt-utils</title>
+		<link
+			rel="stylesheet"
+			href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css"
+		/>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+	</head>
+	<body>
+		<div id="content"></div>
+
+		<script>
+			const content = document.querySelector("#content");
+
+			fetch("./index.md")
+				.then((res) => {
+					return res.text();
+				})
+				.then((text) => {
+					const renderer = new marked.Renderer();
+					renderer.heading = function (text, level) {
+						const escapedText = text.replace(/[^\w]+/g, "-");
+						const id = this.options.headerPrefix + escapedText;
+
+						return `
+							<h${level} id="${id}">
+								${text}
+							</h${level}>
+						`;
+					};
+
+					marked.setOptions({
+						renderer: renderer,
+						gfm: true,
+						tables: true,
+						breaks: false,
+						pedantic: false,
+						sanitize: false,
+						smartLists: true,
+						smartypants: false,
+						highlight: function (code) {
+							return hljs.highlightAuto(code).value;
+						}
+					});
+
+					const md = marked.parse(text);
+					content.innerHTML = md;
+				});
+		</script>
+	</body>
+</html>
