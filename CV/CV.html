@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>curriculum vitae</title>
+		<link rel="stylesheet" href="./CV.css" />
+	</head>
+	<body>
+		<script>
+			if (navigator.language.startsWith("ja")) {
+				document.title = "履歴書";
+			}
+
+			const createUtilContent = (info) => {
+				const basicInfoContentItem = document.createElement("div");
+				const key = document.createElement("span");
+				key.innerText = info.text ?? info.type;
+				basicInfoContentItem.appendChild(key);
+
+				const value = document.createElement("span");
+				value.innerText = info.value;
+				basicInfoContentItem.appendChild(value);
+				return basicInfoContentItem;
+			};
+
+			const createBasicInfo = (data) => {
+				const basicInfo = document.createElement("div");
+				basicInfo.id = "basicInfo";
+
+				const basicInfoTitle = document.createElement("h2");
+				basicInfoTitle.innerText = data.title;
+				basicInfoTitle.className = "title";
+				basicInfo.appendChild(basicInfoTitle);
+
+				const basicInfoContent = document.createElement("div");
+				basicInfoContent.id = "basicInfoContent";
+				basicInfoContent.className = "content";
+
+				data.content.forEach((v) => {
+					const content = createUtilContent(v);
+					basicInfoContent.appendChild(content);
+				});
+
+				basicInfo.appendChild(basicInfoContent);
+				document.body.appendChild(basicInfo);
+			};
+
+			const createSkill = (data) => {
+				const skill = document.createElement("div");
+				skill.id = "skill";
+
+				const skillTitle = document.createElement("h2");
+				skillTitle.innerText = data.title;
+				skillTitle.className = "title";
+				skill.appendChild(skillTitle);
+
+				const skillContent = document.createElement("div");
+				skillContent.id = "skillContent";
+				skillContent.className = "content";
+
+				data.content.forEach((v) => {
+					const content = document.createElement("p");
+					content.innerText = v;
+
+					skillContent.appendChild(content);
+				});
+
+				skill.appendChild(skillContent);
+				document.body.appendChild(skill);
+			};
+
+			const createCV = (data) => {
+				createBasicInfo(data.find((v) => v.group === "basic"));
+				createSkill(data.find((v) => v.group === "skill"));
+			};
+
+			fetch("./CV.json")
+				.then((res) => {
+					return res.json();
+				})
+				.then((data) => {
+					console.log(data);
+					createCV(data["zh"]);
+				});
+		</script>
+	</body>
+</html>

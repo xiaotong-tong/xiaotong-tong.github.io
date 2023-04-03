@@ -1,0 +1,48 @@
+{
+	"zh": [
+		{
+			"group": "basic",
+			"title": "基本资料",
+			"content": [
+				{
+					"type": "name",
+					"text": "姓名",
+					"value": "吴同同"
+				},
+				{
+					"type": "age",
+					"text": "年龄",
+					"value": 24
+				},
+				{
+					"type": "education",
+					"text": "学历",
+					"value": "本科"
+				},
+				{
+					"type": "email",
+					"text": "邮箱",
+					"value": "wtt150249@gmail.com"
+				},
+				{
+					"type": "Github",
+					"value": "https://github.com/xiaotong-tong"
+				}
+			]
+		},
+		{
+			"group": "skill",
+			"title": "技术栈",
+			"content": [
+				"熟练使用 HTML、CSS 和 JavaScript 构建高性能 Web 应用程序，并具有基础框架开发经验。",
+				"熟悉 Vue.js 并掌握其常用 Web 库，如 Vue Router、Pinia、axios、Element，有单页面应用开发经验。",
+				"具备 Git 与 Markdown 的使用技能，并具有良好的编程习惯，能够编写规范化、易维护的代码。",
+				"熟悉 Node.js 开发，了解 SQL 语句，具有使用 Express 和 Sequelize 开发 API 接口的经验。",
+				"具备自动化测试开发技能，具有 Puppeteer 和 Selenium 自动化测试开发经验。",
+				"具备无障碍开发经验，能够开发更易于访问和使用的 Web 应用程序。",
+				"具备日文阅读能力，拥有 N2 等级证书。"
+			]
+		}
+	],
+	"ja": []
+}
