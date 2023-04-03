@@ -1,6 +1,6 @@
 # xtt-utils
 
-## 目录结构
+## navList
 
 - random
   - [random](#random)
@@ -64,7 +64,7 @@ randomList(1, 10, 5); // [8, 9, 10, 8, 10]
 weightedRandom([1, 2, 3, 4, 5], [1, 2, 3, 4, 5]); // 5
 ```
 
-## string
+## string Methods
 
 ### reverse
 
@@ -126,7 +126,7 @@ endsWith("Hello World!", /World!/); // true
 endsWith("Hello World!", /Hello/, 5); // true
 ```
 
-## array
+## array Methods
 
 ### shuffle
 
@@ -138,7 +138,7 @@ endsWith("Hello World!", /Hello/, 5); // true
 shuffle([1, 2, 3, 4, 5]); // [2, 4, 1, 5, 3]
 ```
 
-## number
+## number Methods
 
 ### conversionBase
 
