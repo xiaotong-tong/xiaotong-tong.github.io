@@ -42,6 +42,39 @@
 				"具备无障碍开发经验，能够开发更易于访问和使用的 Web 应用程序。",
 				"具备日文阅读能力，拥有 N2 等级证书。"
 			]
+		},
+		{
+			"group": "job",
+			"title": "工作经历",
+			"content": [
+				{
+					"company": "安徽科大国创软件科技有限公司",
+					"position": "web 前端开发工程师",
+					"time": "2020.12 - 至今 (实习： 2020.12 - 2021.06)",
+					"content": [
+						{
+							"project": "XUX",
+							"time": "2020.12 - 至今",
+							"info": "基于 jQuery 和 jQuery UI 的前端组件库，用于快速开发 Web 应用程序。",
+							"content": [
+								"升级与维护现有组件代码，确保其始终保持高效和可靠。",
+								"将组件依赖库升级到最新版本，在项目期间，我们将 jQuery 从 1.10.2 版本升级到 3.6.0 版本。",
+								"升级与维护自动化测试代码，提高测试效率和代码质量。在项目期间，我们实现了代码覆盖率测试功能。",
+								"小组内部的任务分配与初步 review 其他成员代码。在项目期间使用 Vue.js、Node.js 和 MySQL 做出了小组内部使用的任务管理系统。"
+							]
+						},
+						{
+							"project": "MUXJS",
+							"time": "2022.04 - 至今",
+							"info": "基于 Web Components 的前端组件库，为 XUX 组件库的升级",
+							"content": [
+								"使用 Web Components 和 SCSS 重写 XUX 组件。",
+								"使用 Intl API 重写 globalize + CLDR 国际化语言库。使 currency、number、datetime 的国际化格式趋于原生。"
+							]
+						}
+					]
+				}
+			]
 		}
 	],
 	"ja": []

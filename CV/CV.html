@@ -8,7 +8,9 @@
 		<link rel="stylesheet" href="./CV.css" />
 	</head>
 	<body>
+		<main></main>
 		<script>
+			const mainEl = document.querySelector("main");
 			if (navigator.language.startsWith("ja")) {
 				document.title = "履歴書";
 			}
@@ -44,7 +46,7 @@
 				});
 
 				basicInfo.appendChild(basicInfoContent);
-				document.body.appendChild(basicInfo);
+				mainEl.appendChild(basicInfo);
 			};
 
 			const createSkill = (data) => {
@@ -68,12 +70,70 @@
 				});
 
 				skill.appendChild(skillContent);
-				document.body.appendChild(skill);
+				mainEl.appendChild(skill);
+			};
+
+			const createJob = (data) => {
+				const job = document.createElement("div");
+				job.id = "job";
+
+				const jobTitle = document.createElement("h2");
+				jobTitle.innerText = data.title;
+				jobTitle.className = "title";
+				job.appendChild(jobTitle);
+
+				const jobContent = document.createElement("div");
+				jobContent.id = "jobContent";
+				jobContent.className = "content";
+
+				data.content.forEach((v) => {
+					const company = document.createElement("div");
+					company.className = "company";
+
+					const companyTitle = document.createElement("h3");
+					companyTitle.innerHTML = `<span>${v.company}</span><span>${v.time}</span>`;
+					company.appendChild(companyTitle);
+
+					const jobContentItemContent = document.createElement("div");
+					jobContentItemContent.className = "jobContentItemContent";
+
+					v.content.forEach((project) => {
+						const projectName = document.createElement("h4");
+						projectName.innerHTML = `<span>${project.project}</span><span>${project.time}</span>`;
+
+						const projectContent = document.createElement("div");
+						projectContent.className = "projectContent";
+
+						const projectInfo = document.createElement("p");
+						projectInfo.innerText = "项目描述：" + project.info;
+						projectContent.appendChild(projectInfo);
+
+						const projectContentTitle = document.createElement("p");
+						projectContentTitle.innerText = "主要工作内容：";
+						projectContent.appendChild(projectContentTitle);
+
+						project.content.forEach((content) => {
+							const projectContentItem = document.createElement("p");
+							projectContentItem.innerText = content;
+							projectContent.appendChild(projectContentItem);
+						});
+
+						jobContentItemContent.appendChild(projectName);
+						jobContentItemContent.appendChild(projectContent);
+					});
+
+					company.appendChild(jobContentItemContent);
+					jobContent.appendChild(company);
+				});
+
+				job.appendChild(jobContent);
+				mainEl.appendChild(job);
 			};
 
 			const createCV = (data) => {
 				createBasicInfo(data.find((v) => v.group === "basic"));
 				createSkill(data.find((v) => v.group === "skill"));
+				createJob(data.find((v) => v.group === "job"));
 			};
 
 			fetch("./CV.json")

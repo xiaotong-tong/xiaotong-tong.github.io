@@ -1,3 +1,8 @@
+main {
+	width: min(100%, 700px);
+	margin: 0 auto;
+}
+
 .title {
 	font-size: 20px;
 	margin-block-end: 8px;
@@ -27,6 +32,23 @@
 	content: ":";
 }
 
-#skillContent > p {
+p {
 	margin-block: 8px;
+}
+
+#jobContent :is(h3, h4) {
+	color: black;
+	display: flex;
+	justify-content: space-between;
+	margin-block: 8px;
+}
+
+#jobContent :is(h3, h4) > span:last-child {
+	color: gray;
+	font-size: 14px;
+}
+
+.jobContentItemContent,
+.projectContent {
+	padding-inline-start: 1em;
 }
