@@ -1,53 +1,10 @@
-# xtt-utils
-
-## navList
-
-- random
-  - [random](#random)
-  - [nonDuplicateRandomList](#nonDuplicateRandomList)
-  - [randomList](#randomList)
-  - [weightedRandom](#weightedRandom)
-- string
-  - [reverse](#reverse)
-  - [strToNum](#strToNum)
-  - [charToCodePoint](#charToCodePoint)
-  - [startsWith](#startsWith)
-  - [endsWith](#endsWith)
-  - [getTermLeft](#getTermLeft)
-  - [getTermRight](#getTermRight)
-  - [getRangeByTerm](#getRangeByTerm)
-- array
-  - [shuffle](#shuffle)
-- number
-  - [conversionBase](#conversionBase)
-  - [thousandth](#thousandth)
-- file
-  - [b64ToBlob](#b64ToBlob)
-  - [fileToB64](#fileToB64)
-- function
-  - [chain](#chain)
-  - [throttle](#throttle)
+# xttUtils
 
 ## random Methods
 
 ### random
 
 返回一个介于 min 和 max 之间的整数 (包含 min 和 max)。
-
-#### params
-
-- [min=1] (number) (可选)：最小值
-- [max=100] (number) (可选)：最大值
-
-如果不传递参数，返回一个介于 1 和 100 之间的整数 (包含 0 和 100)。
-
-如果包含一个参数，则返回一个介于 1 和参数之间的整数 (包含 1 和 max)。
-
-如果包含两个参数，则返回一个介于 min 和 max 之间的整数 (包含 min 和 max)。
-
-#### returns
-
-- (number)：介于 min 和 max 之间的随机整数 (包含 min 和 max)。
 
 #### note
 
@@ -59,35 +16,28 @@
 >
 > Number.MIN_SAFE_INTEGER = -9007199254740991 = -(2^53 - 1)
 
+#### params
+
+-   [min=1] (number) (可选)：最小值
+-   [max=100] (number) (可选)：最大值
+
+如果不传递参数，返回一个介于 1 和 100 之间的整数 (包含 0 和 100)。
+
+如果包含一个参数，则返回一个介于 1 和参数之间的整数 (包含 1 和 max)。
+
+如果包含两个参数，则返回一个介于 min 和 max 之间的整数 (包含 min 和 max)。
+
+#### returns
+
+-   (number)：介于 min 和 max 之间的随机整数 (包含 min 和 max)。
+
 #### example
 
-```javascript
+```js
 random(1, 10); // 1 - 10
 random(10); // 1 - 10
 random(); // 1 - 100
 random(-Infinity, Infinity); // -9007199254740991 - 9007199254740991
-```
-
-### nonDuplicateRandomList
-
-生成一个没有重复值的随机数列表
-
-#### params
-
-- [min=0] (number)：最小值
-- [max=9] (number)：最大值
-- [count=max-min+1] (number)：生成的随机数的个数
-
-#### returns
-
-- (number[])：随机数列表
-
-#### example
-
-```javascript
-nonDuplicateRandomList(1, 10, 5); // [4, 5, 6, 7, 8]
-nonDuplicateRandomList(1, 10, 10); // [8, 7, 10, 4, 3, 5, 2, 1, 9, 6]
-nonDuplicateRandomList(1, 10); // [2, 1, 4, 7, 3, 10, 5, 9, 6, 8]
 ```
 
 ### randomList
@@ -96,19 +46,38 @@ nonDuplicateRandomList(1, 10); // [2, 1, 4, 7, 3, 10, 5, 9, 6, 8]
 
 #### params
 
-- [min=1] (number)：最小值
-- [max=100] (number)：最大值
-- [count=1] (number)：列表个数
+-   [min=1] (number)：最小值
+-   [max=10] (number)：最大值
+-   [number|option] (object)：配置项, 如果是数字，则表示列表个数
+    -   [option.count=max-min+1] (number)：列表个数
+    -   [option.unique=false] (boolean)：列表中的数是否唯一
+
+min 和 max 参数与 [random](./random.md) 方法一致。(默认值除外)
 
 #### returns
 
-- (number[])：每项均介于 min 和 max 之间的 length 为 count 的随机数列表
+-   (number[])：每项均介于 min 和 max 之间的 length 为 count 的随机数列表
 
 #### example
 
-```javascript
+```js
 randomList(1, 10, 5); // [8, 9, 10, 8, 10]
 randomList(1, 10, 10); // [3, 5, 4, 1, 10, 7, 6, 9, 4, 10]
+randomList(1, 10, {
+	unique: false
+}); // [10, 6, 4, 1, 3, 1, 9, 6, 4, 1]
+
+randomList(1, 10, {
+	count: 5,
+	unique: true
+}); // [ 1, 6, 9, 2, 8 ]
+randomList(1, 10, {
+	count: 10,
+	unique: true
+}); // [2, 10, 6, 4, 7, 9,  5, 8, 1, 3]
+randomList(1, 10, {
+	unique: true
+}); // [4, 8, 10, 6, 1,5, 2,  7, 9, 3]
 ```
 
 ### weightedRandom
@@ -117,19 +86,33 @@ randomList(1, 10, 10); // [3, 5, 4, 1, 10, 7, 6, 9, 4, 10]
 
 #### params
 
-- randomList (any[] | Object<string,number>)：随机数列表。
-  当 randomList 为 Object 时，权重列表将被忽略，Object 的 key 为随机数列表，value 为权重列表
-- [weightList] (number[])：权重列表
+-   randomList (any[] | Object<string,number>)：随机数列表。
+    当 randomList 为 Object 时，权重列表将被忽略，Object 的 key 为随机数列表，value 为权重列表
+-   [weightList] (number[])：权重列表
 
 #### returns
 
-- (any)：随机数列表中的某一项
+-   (any)：随机数列表中的某一项
 
 #### example
 
-```javascript
+```js
 weightedRandom([1, 2, 3], [4, 5, 6]); // 4/15 的概率返回 1，5/15 的概率返回 2，6/15 的概率返回 3
 weightedRandom({ 1: 4, 2: 5, 3: 6 }); // 同上
+```
+
+### randomHexColor
+
+生成一个随机的十六进制颜色值
+
+#### returns
+
+-   (string)：十六进制颜色值
+
+#### example
+
+```js
+randomHexColor(); // #e672ac
 ```
 
 ## string Methods
@@ -140,59 +123,17 @@ weightedRandom({ 1: 4, 2: 5, 3: 6 }); // 同上
 
 #### params
 
-- str (string)：要反转的字符串
+-   str (string)：要反转的字符串
 
 #### returns
 
-- (string)：反转后的字符串
+-   (string)：反转后的字符串
 
 #### example
 
-```javascript
+```js
 reverse("hello"); // 'olleh'
 reverse(""); // ''
-```
-
-### strToNum
-
-将字符串转换为数字。
-
-#### params
-
-- text (string)：要转换的字符串
-
-#### returns
-
-- (number)：转换后的数字
-
-#### example
-
-```javascript
-strToNum("123"); // 123
-strToNum("123.456"); // 123.456
-strToNum("123.456.789"); // 123.456789
-```
-
-### charToCodePoint
-
-返回一个字符串的 Unicode 编码点。
-
-#### params
-
-- str (string)：要转换的字符串
-- [options] (Object)：可选参数
-  - [separator=""] (string)：分隔符
-  - [base=16] (2 | 8 | 10 | 16)：进制
-
-#### returns
-
-- (string)：Unicode 编码点
-
-#### example
-
-```javascript
-charToCodePoint("Hello"); // "0x480x650x6c0x6c0x6f"
-charToCodePoint("Hello World!", { base: 2, separator: " " }); // "0b1001000 0b1100101 0b1101100 0b1101100 0b1101111 0b100000 0b1010111 0b1101111 0b1110010 0b1101100 0b1100100 0b100001"
 ```
 
 ### startsWith
@@ -201,22 +142,24 @@ charToCodePoint("Hello World!", { base: 2, separator: " " }); // "0b1001000 0b11
 
 #### params
 
-- str (string)：要判断的字符串
+-   str (string)：要判断的字符串
 
-- prefix (string | RegExp)：要判断的字符串或正则表达式
+-   prefix (string | RegExp)：要判断的字符串或正则表达式
 
-- [position] (number)：开始判断的位置
+-   [position] (number)：开始判断的位置
 
 #### returns
 
-- (boolean)：如果字符串以指定的字符串或正则表达式匹配的字符串开头，则返回 `true`，否则返回 `false`
+-   (boolean)：如果字符串以指定的字符串或正则表达式匹配的字符串开头，则返回 `true`，否则返回 `false`
 
 #### example
 
-```javascript
+```js
 startsWith("Hello World!", "Hello"); // true
+startsWith("Hello World!", "World"); // false
 startsWith("Hello World!", "World", 6); // true
 startsWith("Hello World!", /Hello/); // true
+startsWith("Hello World!", /World/); // false
 startsWith("Hello World!", /World/, 6); // true
 ```
 
@@ -226,40 +169,42 @@ startsWith("Hello World!", /World/, 6); // true
 
 #### params
 
-- str (string)：要判断的字符串
+-   str (string)：要判断的字符串
 
-- suffix (string | RegExp)：要判断的字符串或正则表达式
+-   suffix (string | RegExp)：要判断的字符串或正则表达式
 
-- [endPosition] (number)：结束判断的位置
+-   [endPosition] (number)：结束判断的位置
 
 #### returns
 
-- (boolean)：如果字符串以指定的字符串或正则表达式匹配的字符串结尾，则返回 `true`，否则返回 `false`
+-   (boolean)：如果字符串以指定的字符串或正则表达式匹配的字符串结尾，则返回 `true`，否则返回 `false`
 
 #### example
 
-```javascript
+```js
 endsWith("Hello World!", "World!"); // true
+endsWith("Hello World!", "World"); // false
 endsWith("Hello World!", "Hello", 5); // true
 endsWith("Hello World!", /World!/); // true
+endsWith("Hello World!", /World/); // false
 endsWith("Hello World!", /Hello/, 5); // true
 ```
 
 ### getTermLeft
 
-获取字符串中匹配项左侧的字符串
+Get the string to the left of the matching item in the string
 
 #### params
 
-- str (string)：要获取的字符串
+-   str (string)：The string to get
 
-- searchTerm (string | RegExp)：要匹配的字符串或正则表达式
+-   searchTerm (string | RegExp)：The string or regular expression to match
 
-- [beforeWhichTimes=1] (number)：匹配到几次后停止，默认为 1, 如果数字大于匹配到的次数，则返回最后一个匹配项左侧的字符串
+-   [beforeWhichTimes=1] (number)：Stop after matching several times, the default is 1, if the number is greater than the number of matches, the string to the left of the last match is returned
 
 #### returns
 
-- (string)：返回匹配项左侧的字符串
+-   (string)：Returns the string to the left of the matching item
 
 #### example
 
@@ -278,15 +223,15 @@ getTermLeft("abc1de2", /\d/, 3); // "abc1de"
 
 #### params
 
-- str (string)：要获取的字符串
+-   str (string)：要获取的字符串
 
-- searchTerm (string | RegExp)：要匹配的字符串或正则表达式
+-   searchTerm (string | RegExp)：要匹配的字符串或正则表达式
 
-- [beforeWhichTimes] (number)：匹配到几次后停止，默认为 1, 如果数字大于匹配到的次数，则返回最后一个匹配项右侧的字符串，如果想取右侧开始第一个匹配项，可以传入 -1
+-   [beforeWhichTimes=1] (number)：匹配到几次后停止，默认为 1, 如果数字大于匹配到的次数，则返回最后一个匹配项右侧的字符串，如果想取右侧开始第一个匹配项，可以传入 -1
 
 #### returns
 
-- (string)：返回匹配项右侧的字符串
+-   (string)：返回匹配项右侧的字符串
 
 #### example
 
@@ -305,12 +250,12 @@ getTermRight("abc1de2", /\d/, 3); // ""
 
 #### params
 
-- str (string)：要处理的字符串
-- term ([string | RegExp, string | RegExp])：要匹配的字符串或正则表达式范围
+-   str (string)：要处理的字符串
+-   term ([string | RegExp, string | RegExp])：要匹配的字符串或正则表达式范围
 
 #### returns
 
-- (string)：返回匹配范围内的字符串
+-   (string)：返回匹配范围内的字符串
 
 #### example
 
@@ -318,6 +263,74 @@ getTermRight("abc1de2", /\d/, 3); // ""
 getRangeByTerm("abcde", ["b", "d"]); // "c"
 getRangeByTerm("abcde", ["d", "b"]); // "c"
 getRangeByTerm("a1bcd2e", [/\d/, /\d/]); // "bcd"
+```
+
+### charToCodePoint
+
+返回一个字符串的 Unicode 编码点。
+
+#### params
+
+-   str (string)：要转换的字符串
+-   [options] (Object)：可选参数
+    -   [separator=""] (string)：分隔符
+    -   [base=16] (2 | 8 | 10 | 16)：进制
+
+#### returns
+
+-   (string)：Unicode 编码点
+
+#### example
+
+```js
+charToCodePoint("Hello"); // "0x480x650x6c0x6c0x6f"
+charToCodePoint("Hello World!", { separator: " " }); // "0x48 0x65 0x6c 0x6c 0x6f 0x20 0x57 0x6f 0x72 0x6c 0x64 0x21"
+charToCodePoint("Hello World!", { base: 2, separator: " " }); // "0b1001000 0b1100101 0b1101100 0b1101100 0b1101111 0b100000 0b1010111 0b1101111 0b1110010 0b1101100 0b1100100 0b100001"
+```
+
+### trimLineStart
+
+删除行前的空格，保留缩进层级，如果是多行，那么会删除所有行的最小共有空格数
+
+#### params
+
+-   str (string)：要转换的字符串
+-   options(object): 配置项
+    -   removeFirstEmptyLine (boolean)：是否删除第一行的空行。默认值为 false
+    -   removeLastEmptyLine (boolean)：是否删除最后一行的空行。默认值为 false
+
+#### returns
+
+-   (string)：返回删除行前空格 format 后的字符串
+
+#### example
+
+```js
+trimLineStart("  123"); // "123"
+trimLineStart("  123\n  456"); // "123\n456"
+trimLineStart("  123\n    456"); // "123\n  456"
+```
+
+### strToNum
+
+将字符串转换为数字
+
+#### params
+
+-   text (string)：要转换的字符串
+
+#### returns
+
+-   (number)：转换后的数字
+
+#### example
+
+```js
+strToNum("123"); // 123
+strToNum("123.456"); // 123.456
+strToNum("123.456.789"); // 123.456789
+strToNum("fdsf12fd3.4fsdf56.7fds89"); // 123.456789
+strToNum("-fdsf12fd3.4fsdf56.7fds89"); // -123.456789
 ```
 
 ## array Methods
@@ -328,13 +341,13 @@ getRangeByTerm("a1bcd2e", [/\d/, /\d/]); // "bcd"
 
 #### params
 
-- list (array)：需要打乱的数组
+-   list (array): 需要打乱的数组
 
 #### returns
 
-- (array)：乱序后的数组
+-   (array): 乱序后的数组，如果传入的参数没有 length 属性或者 length 为 0，返回空数组
 
-#### emample
+#### example
 
 ```js
 shuffle([1, 2, 3, 4, 5]); // [2, 4, 1, 3, 5]
@@ -344,46 +357,51 @@ shuffle([1, 2, 3, 4, 5]); // [2, 4, 1, 3, 5]
 
 ### conversionBase
 
-将数字转换为指定进制的字符串。
+将数字转换为指定进制的字符串
 
 #### params
 
-- num (number)：要转换的数字
-- [base=10] (2 | 8 | 10 | 16)：进制
+-   num (number)：要转换的数字
+-   [base=10] (2 | 8 | 10 | 16)：进制
 
 #### returns
 
-- (string)：转换后的字符串，除十进制外, 其他进制会添加字符串前缀 0x, 0o, 0b
+-   (string)：转换后的字符串，除十进制外, 其他进制会添加字符串前缀 0x, 0o, 0b
 
 #### example
 
-```javascript
+```js
 conversionBase(10, 2); // '0b1010'
 conversionBase(10, 8); // '0o12'
 conversionBase(10, 16); // '0xa'
 conversionBase(0xa, 10); // '10'
+conversionBase(0xa); // '10'
 ```
 
 ### thousandth
 
-将数字转换为千分位格式。
+将数字转换为千分位格式
 
 #### params
 
-- num (number): The number to convert
-- - [maximumFractionDigits=20] (number): The maximum number of digits after the decimal point
+-   num (number): 要转换的数字
+-   [maximumFractionDigits=20] (number): 小数点后的最大位数
 
 #### returns
 
-- (string): The converted string with thousandth format
+-   (string): 转换为千分位格式的字符串
 
 #### example
 
-```javascript
+```js
 thousandth(1000000); // "1,000,000"
 thousandth(1000000.1234); // "1,000,000.1234"
 thousandth(1000000.1234, 2); // "1,000,000.12"
 ```
+
+#### references
+
+-   MDN [Intl.NumberFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat)
 
 ## file Methods
 
@@ -393,11 +411,11 @@ thousandth(1000000.1234, 2); // "1,000,000.12"
 
 #### params
 
-- b64Data (string)：base64 字符串
+-   b64Data (string)：base64 字符串
 
 #### returns
 
-- (Promise<Blob>)：promise of Blob object
+-   (Promise<Blob>)：一个 Blob 对象的 promise
 
 #### notes
 
@@ -407,56 +425,44 @@ thousandth(1000000.1234, 2); // "1,000,000.12"
 
 ### fileToB64
 
-Converts a file Object to a base64 string.
+将 File 对象转换为 base64 字符串。
 
 > warning
 >
-> This functino is supported in browser environment only.
-> Not supported in node.js environment. Because `File` and `FileReader` is not a global object in node.js.
+> 该函数仅支持浏览器环境。
+> 不支持 node.js 环境，因为 `File` 和 `FileReader` 在 node.js 不受支持。
 
 #### params
 
-- file (File): File object
+-   file (File): File object
 
 #### returns
 
-- (Promise<string>): promise of the base64 string
+-   (Promise<string>): base64 字符串的 promise
 
 ## function Methods
 
-### chain
+### fori
 
-创建一个链式调用规则，之后可以使用链式调用的方式来操作数据。最后可以通过 value() 方法来获取最终的值。
+循环执行函数。
 
 #### params
 
-- [self=this] (object): 需要链式调用的对象, 默认为 this 对象。
-- [?initValue] (\*): 初始值, 在下一次调用链式调用的方法时会作为第一个参数传入
+-   collection (\*): 要循环的目标。
+-   iteratee (Iteratee): 在循环的每次迭代上执行的函数。
+-   options (object): 循环的选项。
+-   options.thisArg (object): iteratee 函数中的 this 的值。
+-   options.asyncIterator (boolean): 目标是否为异步迭代器。
 
-如果仅传入一个参数, 且该参数不是对象, 则该参数会作为 initValue 值，如果传入的是对象，则该对象会作为 self 值
+Iteratee:
+
+-   iterator (\*): 当前迭代的值。
+-   i (number): 当前迭代的索引。
+-   target (\_): 当前迭代的目标。如果目标是对象，则此值为 Object.entries(\_)。
 
 #### returns
 
-- (Proxy): 代理对象
-
-#### example
-
-```js
-chain(xttUtils, "Hello World!")
-	.reverse()
-	.reverse()
-	.getTermRight(" ")
-	.endsWith("World")
-	.value(); // true
-
-xttUtils
-	.chain("Hello World!")
-	.reverse()
-	.reverse()
-	.getTermRight(" ")
-	.endsWith("World")
-	.value(); // true
-```
+-   (Array | Promise\<Array>): 返回循环的结果。如果目标是异步迭代器，则返回值是 Promise。
 
 ### throttle
 
@@ -467,12 +473,12 @@ xttUtils
 
 #### params
 
-- func (function)：要节流的函数
-- delay (number)：等待时间
+-   func (function)：要节流的函数
+-   delay (number)：等待时间
 
 #### returns
 
-- (function)：节流后的函数
+-   (function)：节流后的函数
 
 #### example
 
@@ -488,4 +494,79 @@ throttle((a) => console.log(a), 3000);
 // 3.9 秒时等待时间结束，运行最后一次的调用，输出 4;
 // 4.5 秒后触发 5, 等待
 // ...
+```
+
+### chain
+
+创建一个链式调用规则，之后可以使用链式调用的方式来操作数据。最后可以通过 value() 方法来获取最终的值。
+
+#### params
+
+-   [self=this] (object): 需要链式调用的对象, 默认为 this 对象。
+-   [?initValue] (\*): 初始值, 在下一次调用链式调用的方法时会作为第一个参数传入
+
+如果仅传入一个参数, 且该参数不是对象, 则该参数会作为 initValue 值，如果传入的是对象，则该对象会作为 self 值
+
+#### returns
+
+-   (Proxy): 代理对象
+
+#### example
+
+```js
+chain(xttUtils, "Hello World!").reverse().reverse().getTermRight(" ").endsWith("World").value(); // true
+
+xttUtils.chain("Hello World!").reverse().reverse().getTermRight(" ").endsWith("World").value(); // true
+```
+
+### compose
+
+组合函数 从右到左依次执行函数组合
+
+#### params
+
+-   fns (...Function): 所有要组合的函数必须是单参数函数，最后一个函数可以是多参数函数
+
+#### returns
+
+-   (Function): 组合后的执行函数
+
+#### example
+
+```js
+const _ = xttUtils.curry.placeholder;
+const isEndsWith = xttUtils.curry(xttUtils.endsWith, _, "World!", undefined);
+const getTermRight = xttUtils.curry(xttUtils.getTermRight, _, " ", 1);
+compose(isEndsWith, getTermRight)("Hello World!"); // true
+```
+
+### curry
+
+函数柯里化
+
+如果想使用占位符,请使用 `curry.placeholder` 属性
+
+#### params
+
+-   fn (Function)：要柯里化的函数
+-   [args] (...any)：初始化的参数
+
+#### returns
+
+-   (Function | any)：柯里化后的函数,如果参数已经足够,则返回函数执行结果
+
+#### example
+
+```js
+const add = (a, b, c) => a + b + c;
+const curriedAdd = curry(add);
+const _ = curry.placeholder;
+curriedAdd(1, 2, 3); // 6
+curriedAdd(1)(2, 3); // 6
+curriedAdd(1, 2)(3); // 6
+curriedAdd(1)(2)(3); // 6
+curriedAdd(_, 2)(1)(3); // 6
+curriedAdd(_, 2, 3)(1); // 6
+curriedAdd(_, _, 3)(_, 2)(1); // 6
+curry(add, 10, 20, 30, 4); // 60
 ```
