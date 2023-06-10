@@ -105,6 +105,11 @@ weightedRandom({ 1: 4, 2: 5, 3: 6 }); // 同上
 
 生成一个随机的十六进制颜色值
 
+#### params
+
+-   [options] (object)：配置项
+    -   [alpha=false] (boolean)：是否包含透明度通道，默认为 false
+
 #### returns
 
 -   (string)：十六进制颜色值
@@ -113,6 +118,7 @@ weightedRandom({ 1: 4, 2: 5, 3: 6 }); // 同上
 
 ```js
 randomHexColor(); // #e672ac
+randomHexColor({ alpha: true }); // #8b346ae5
 ```
 
 ## string Methods
@@ -353,6 +359,56 @@ strToNum("-fdsf12fd3.4fsdf56.7fds89"); // -123.456789
 shuffle([1, 2, 3, 4, 5]); // [2, 4, 1, 3, 5]
 ```
 
+### range
+
+创建一个包含从 start 到 end 范围数字的数组（包含 end 本身）。
+
+#### params
+
+-   [start=0] (number): 开始的数字
+-   [end=0] (number): 结束的数字
+-   [step] (number): 步长
+
+如果只传一个参数，则创建一个从 0 到 start 范围数字的数组（包含 start 本身）。start 小于 0 时，step 默认为 -1, start 大于 0 时，step 默认为 1。
+
+如果包含两个参数，则创建一个从 start 到 end 范围数字的数组（包含 end 本身）。start 小于 end 时，step 默认为 1, start 大于 end 时，step 默认为 -1。
+
+#### returns
+
+-   (Array): 返回一个包含从 start 到 end 范围数字的数组（包含 end 本身）。
+
+#### example
+
+```js
+range(10); // => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+// 相当于 range(0, 10) 或 range(0, 10, 1)
+
+range(-10); // => [0, -1, -2, -3, -4, -5, -6, -7, -8, -9, -10]
+// 相当于 range(0, -10) 或 range(0, -10, -1)
+
+range(1, 10, 7); // => [1, 8]
+range(1, -10, -3); // => [1, -2, -5, -8]
+```
+
+### sum
+
+求和
+
+#### params
+
+-   values (...Array): 需要求和的数组或参数列表
+
+#### returns
+
+-   (number): 求和结果
+
+#### example
+
+```js
+sum([1, 2, 3, 4, 5]); // 15
+sum(1, 2, 3, 4, 5); // 15
+```
+
 ## number Methods
 
 ### conversionBase
@@ -570,3 +626,64 @@ curriedAdd(_, 2, 3)(1); // 6
 curriedAdd(_, _, 3)(_, 2)(1); // 6
 curry(add, 10, 20, 30, 4); // 60
 ```
+
+## date Methods
+
+### formatDate
+
+格式化日期
+
+#### params
+
+-   date (Date|string|number): 日期
+-   format (string|object): 格式化字符串或者格式化选项
+    -   format (string): 格式化字符串, 默认为 'YYYY-MM-DD hh:mm:ss'，可选值参考下方 format 列表
+    -   lang (string): 语言，默认为 'en'
+
+#### returns
+
+-   (string|Function): 格式化后的日期
+
+如果仅传入 date 参数，返回日期固定的偏函数，后续可以传入 format 参数，可以用于多次格式化同一个日期，
+如果初次调用时已经传入了 format 参数，则直接返回格式化后的日期
+
+#### example
+
+```js
+formatDate("2023-01-01", "YYYY-MM-DD hh:mm:ss"); // => '2023-01-01 00:00:00'
+formatDate("2023-01-01")("[YYYYMD]YYYY-M-D h:m:s"); // => 'YYYYMD2023-1-1 0:0:0'
+formatDate("2023-01-01", "dddd"); // => 'Sunday'
+formatDate("2023-01-01", { format: "dddd", lang: "zh-CN" }); // => '星期日'
+```
+
+##### format
+
+支持的格式化占位符选项：
+
+| 占位符 | 输出          | 详情                   |
+| ------ | ------------- | ---------------------- |
+| YY     | 23            | 两位数的年份           |
+| YYYY   | 2023          | 四位数的年份           |
+| M      | 1-12          | 月份                   |
+| MM     | 01-12         | 月份，会格式化为两位数 |
+| D      | 1-31          | 日期                   |
+| DD     | 01-31         | 日期，会格式化为两位数 |
+| h      | 0-23          | 小时                   |
+| hh     | 00-23         | 小时，会格式化为两位数 |
+| m      | 0-59          | 分钟                   |
+| mm     | 00-59         | 分钟，会格式化为两位数 |
+| s      | 0-59          | 秒                     |
+| ss     | 00-59         | 秒，会格式化为两位数   |
+| SSS    | 000-999       | 毫秒，会格式化为三位数 |
+| d      | 0-6           | 星期几，0 代表星期日   |
+| dd     | 日-六         | 星期几，最短写法       |
+| ddd    | 周日-周六     | 星期几，短写法         |
+| dddd   | 星期日-星期六 | 星期几，长写法         |
+
+> dd, ddd, dddd 选项需要传入 lang 参数才能生效, 默认为 'en'
+> 取值为 Intl.DateTimeFormat 中的 [weekday](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#parameters) 选项
+> dd -> narrow, ddd -> short, dddd -> long
+
+#### references
+
+-   MDN [Intl.DateTimeFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat)
