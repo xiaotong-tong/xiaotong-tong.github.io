@@ -5,16 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>xtt-utils</title>
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css"
-		/>
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown-light.css"
-		/>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+		<script src="../xtt-ui.min.js"></script>
 
 		<style>
 			body {
@@ -33,65 +24,55 @@
 				padding-inline-start: 0;
 				margin-block: 0;
 			}
-			#nav ul ul {
-				padding-inline-start: 1em;
+
+			#nav p {
+				margin-block-end: 8px;
 			}
+
 			#nav a {
-				color: unset;
-			}
-			#content {
-				overflow-x: hidden;
+				padding-inline-start: 1em;
 			}
 		</style>
 	</head>
 	<body>
 		<nav id="nav"></nav>
-		<div id="content" class="markdown-body"></div>
+		<xtt-markdown id="markdown"></xtt-markdown>
 
 		<script>
 			const nav = document.querySelector("#nav");
-			const content = document.querySelector("#content");
+			const content = document.querySelector("#markdown");
 
 			fetch("./index.md")
 				.then((res) => {
 					return res.text();
 				})
 				.then((text) => {
-					const renderer = new marked.Renderer();
-					renderer.heading = function (text, level) {
-						const escapedText = text.replace(/[^\w]+/g, "-");
-						const id = this.options.headerPrefix + escapedText;
+					content.textContent = text;
 
-						return `
-							<h${level} id="${id}">
-								${text}
-							</h${level}>
-						`;
-					};
+					setTimeout(() => {
+						const headers = Array.from(content.headers).filter(
+							(h) => h.tagName === "H2" || h.tagName === "H3"
+						);
 
-					marked.setOptions({
-						renderer: renderer,
-						gfm: true,
-						tables: true,
-						breaks: false,
-						pedantic: false,
-						sanitize: false,
-						smartLists: true,
-						smartypants: false,
-						highlight: function (code) {
-							return hljs.highlightAuto(code).value;
-						}
-					});
+						const ul = document.createElement("ul");
 
-					const md = marked.parse(text);
-					content.innerHTML = md;
+						headers.forEach((h) => {
+							const li = document.createElement("li");
+							let c;
 
-					const navList = content.querySelector("#navList");
-					const navContent = navList.nextElementSibling;
-					if (navContent?.tagName === "UL") {
-						nav.append(navContent);
-						navList.remove();
-					}
+							if (h.tagName === "H2") {
+								c = document.createElement("p");
+							} else {
+								c = document.createElement("a");
+								c.href = "#" + h.id;
+							}
+
+							c.textContent = h.textContent;
+							li.append(c);
+							ul.append(li);
+						});
+						nav.append(ul);
+					}, 0);
 				});
 		</script>
 	</body>
