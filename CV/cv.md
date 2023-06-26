@@ -4,7 +4,7 @@
 
 <section style="display: flex; flex-wrap: wrap">
 <p style="min-width: 50%;"><span>姓名：</span><span>吴同同</span></p>
-<p style="min-width: 50%;"><span>年龄：</span><span>25</span></p>
+<p style="min-width: 50%;"><span>年龄：</span><span>24</span></p>
 <p style="min-width: 50%;"><span>学历：</span><span>本科</span></p>
 <p style="min-width: 50%;"><span>邮箱：</span><span>wtt150249@gmail.com</span></p>
 <p style="min-width: 50%;"><span>GitHub：</span><span>https://github.com/xiaotong-tong</span></p>
@@ -12,12 +12,13 @@
 
 ## 技术栈
 
--   熟练使用 HTML、CSS 和 JavaScript 构建高性能 Web 应用程序，并具有基础框架开发经验。
+-   熟练使用 HTML、CSS 和 JavaScript 构建高性能 Web 应用程序，了解 Web Components 规范，具有基础框架开发经验。
+-   熟练使用 JavaScript ES6+，了解 JavaScript 模块化开发，具有使用 Rollup 打包工具打包项目的经验。
 -   熟悉 Node.js 开发，了解基础 SQL 语句，具有使用 Express 和 Sequelize 开发 API 接口的经验。
 -   了解 Vue.js 及其常用组件库，有单页面应用开发经验。
 -   具备自动化测试开发技能，具有 Puppeteer 和 Selenium 自动化测试开发经验。
--   具备无障碍开发经验，能够开发更易于访问和使用的 Web 应用程序。
--   具备日文阅读能力，拥有 N2 等级证书。
+-   熟悉 ally 适配，具有使用无障碍开发工具检查和修复无障碍问题的经验，能够开发更易于访问和使用的 Web 应用程序。
+-   具备日文阅读能力，拥有 N2 等级证书，能够阅读日文文档。
 
 ## 教育经历
 
@@ -37,9 +38,10 @@
 
 -   负责组件库的升级和维护，保证组件库的稳定性和可用性。
 
-    -   更新项目依赖库，将 jQuery 升级到 3.6.0 版本。
-    -   维护自动化测试功能，使用 Puppeteer 的 Coverage API 对组件库进行测试覆盖率检查。
-    -   组件无障碍功能适配。
+    -   跟踪项目依赖库的更新，及时更新项目依赖库，保证项目的健壮性。例如将 jQuery 从 1.10.2 版本升级到 3.6.0 版本，将 jQuery UI 从 1.10.4 版本升级到 1.12.1 版本等。
+    -   基于 Puppeteer 的 Coverage 模块，实现在自动化测试运行时检查组件库的测试覆盖率。根据覆盖率结果，新增或修改未覆盖的测试用例，删除失效的组件代码，在减少代码量的同时提高组件库的稳定性和可用性。
+    -   使用 axe-core 检查组件库的无障碍性，根据检查结果修改组件库的代码，提高组件库的无障碍性。
+    -   在启动 NVDA 屏幕阅读器后，检查组件库的可访问性，确保组件的内容可以被正确读取，以及组件的交互可以被正确执行。
 
 -   完成了小组内部的任务管理系统开发，用于管理小组内部的任务分配和进度管理。
     -   使用 Vue.js 和 Element UI 开发前端页面。(Vue.js 2.x)
@@ -55,7 +57,7 @@
 项目职责：
 
 -   负责组件库的基础开发，使用 Web Components 和 Scss 开发组件库。
--   调研并使用 Intl API 实现组件库的国际化功能。代替 XUX 中的 globalize + CLDR 组件库的方式实现国际化功能。
+-   调研并使用 Intl API 实现组件库的国际化功能。代替 XUX 中的 globalize + CLDR 组件库的方式实现国际化功能，大幅度降低了组件库打包后的体积。
 
 ### 个人项目
 
@@ -69,7 +71,7 @@
 
 -   负责 random、string、array、function 等模块的开发。
 -   使用 Rollup 打包工具打包项目，使用 Jest 进行单元测试。
--   使用 GitHub Actions 实现自动化测试和自动化发布以及 GitHub Pages 部署。
+-   使用 GitHub Actions 实现自动化测试和自动化发布以及 GitHub Pages 部署。在保证代码质量的同时，提高了开发及部署的效率。
 
 #### xtt-msg
 
